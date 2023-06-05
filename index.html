@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Primitive Interface</title>
+    <script src="local_script.js"></script>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 10px;
+            height: 400px;
+        }
+
+        .panel {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Primitive Interface</h1>
+    <input type="text" id="keywordInput" placeholder="Enter keyword">
+    <button onclick="search()">Search</button>
+
+    <div class="container">
+        <div class="panel">
+            <h2>Video</h2>
+            <!-- Content for panel 1 -->
+            <div id="video"></div>
+            <button onclick="prevlb('video')"> < </button>
+            <button onclick="synclb('video')">Sync</button>
+            <button onclick="nextlb('video')"> > </button>
+        </div>
+        <div class="panel">
+            <h2>Text</h2>
+            <!-- Content for panel 2 -->
+            <div id="text"></div>
+            <button onclick="prevlb('text')"> < </button>
+            <button onclick="synclb('text')">Sync</button>
+            <button onclick="nextlb('text')"> > </button>
+        </div>
+        <div class="panel">
+            <h2>Graphic</h2>
+            <!-- Content for panel 3 -->
+            <div id="graphic"></div>
+            <button onclick="prevlb('graphic')"> < </button>
+            <button onclick="synclb('graphic')">Sync</button>
+            <button onclick="nextlb('graphic')"> > </button>
+        </div>
+        <div class="panel">
+            <h2>Assessment</h2>
+            <!-- Content for panel 4 -->
+            <div id="assessment"></div>
+            <button onclick="prevlb('assessment')"> < </button>
+            <button onclick="synclb('assessment')">Sync</button>
+            <button onclick="nextlb('assessment')"> > </button>
+        </div>
+    </div>
+
+</body>
+</html>
