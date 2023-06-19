@@ -1,3 +1,5 @@
+const lbHistory = {};
+
 function search() {
     const keyword = document.getElementById('keywordInput').value;
     if (keyword.trim() === '') {
@@ -9,40 +11,26 @@ function search() {
       .then(response => response.text())
       .then(csvData => {
         const data = parseCsvData(csvData); // Parse the CSV data
-  
-        const foundDataVideo = data.find(d => d.keyword === keyword && d.type === 'video');
-        if (foundDataVideo) {
-          const out = [{ name : "lg_id", value : foundDataVideo.learning_goal_id}, {name : "lb_id", value : foundDataVideo.learning_byte_id}];
-          displayResults(out, 'video');
-        } else {
-          displayResults([], 'video');
+
+        const lbs = ['video', 'text', 'graphic', 'assessment'];
+        for (lb of lbs) {
+          const foundData = data.find(d => d.keyword === keyword && d.type === lb);
+          if (foundData) {
+            const out = [{ name : "lg_id", value : foundData.learning_goal_id}, {name : "lb_id", value : foundData.learning_byte_id}];
+            displayResults(out, lb);
+            initializeHistory(out, lb);
+          } else {
+            displayResults([], lb);
+            initializeHistory([], lb);
+          }
         }
-        const foundDataText = data.find(d => d.keyword === keyword && d.type === 'text');
-        if (foundDataText) {
-            const out = [{ name : "lg_id", value : foundDataVideo.learning_goal_id}, {name : "lb_id", value : foundDataVideo.learning_byte_id}];
-            displayResults(out, 'text');
-          } else {
-            displayResults([], 'text');
-          }
-        const foundDataGraphic = data.find(d => d.keyword === keyword && d.type === 'graphic');
-        if (foundDataGraphic) {
-            const out = [{ name : "lg_id", value : foundDataVideo.learning_goal_id}, {name : "lb_id", value : foundDataVideo.learning_byte_id}];
-            displayResults(out, 'graphic');
-          } else {
-            displayResults([], 'graphic');
-          }
-        const foundDataAssessment = data.find(d => d.keyword === keyword && d.type === 'assessment');
-        if (foundDataAssessment) {
-            const out = [{ name : "lg_id", value : foundDataVideo.learning_goal_id}, {name : "lb_id", value : foundDataVideo.learning_byte_id}];
-            displayResults(out, 'assessment');
-          } else {
-            displayResults([], 'assessment');
-          }
       })
       .catch(error => {
         console.error('Error:', error);
       });
+      console.log(lbHistory);
   }
+  
   function extractNumbersFromString(str) {
     const numbers = str.match(/\d+/g);
     return numbers ? numbers.map(Number) : [];
@@ -72,6 +60,7 @@ function search() {
           if (newData) {
             const out = [{ name: "lg_id", value: newData.learning_goal_id }, { name: "lb_id", value: newData.learning_byte_id }];
             displayResults(out, lb);
+            updateHistory(out, lb);
           }
         }
       })
@@ -108,21 +97,22 @@ function search() {
     fetch('data.csv') // Replace with the path to your CSV file
         .then(response => response.text())
         .then(csvData => {
-            const data = parseCsvData(csvData); // Parse the CSV data
+          const data = parseCsvData(csvData); // Parse the CSV data
             
-            const foundData = data.find(d => parseInt(d.learning_goal_id) === currentLg && parseInt(d.learning_byte_id) === currentLb);
-            if (foundData) {
-                const order = foundData.learning_pathway_order;
-                console.log('The current order is ', order);
-                const filteredData = data.filter(d => parseInt(d.learning_pathway_order) < order && d.type == lb);
-                if (filteredData.length > 0) {
-                    const newData = filteredData[filteredData.length - 1];
-                    const out = [{ name : "lg_id", value : newData.learning_goal_id}, {name : "lb_id", value : newData.learning_byte_id}];
-                    displayResults(out, lb);
-                } else {
-                    console.log('First element.');
-                }
+          const foundData = data.find(d => parseInt(d.learning_goal_id) === currentLg && parseInt(d.learning_byte_id) === currentLb);
+          if (foundData) {
+            const order = foundData.learning_pathway_order;
+            console.log('The current order is ', order);
+            const filteredData = data.filter(d => parseInt(d.learning_pathway_order) < order && d.type == lb);
+            if (filteredData.length > 0) {
+              const newData = filteredData[filteredData.length - 1];
+              const out = [{ name : "lg_id", value : newData.learning_goal_id}, {name : "lb_id", value : newData.learning_byte_id}];
+              displayResults(out, lb);
+              updateHistory(out, lb);
+            } else {
+              console.log('First element.');
             }
+          }
         })
         .catch(error => {
             console.error('Error:', error);
@@ -142,27 +132,120 @@ function search() {
         const data = parseCsvData(csvData); // Parse the CSV data
   
         const foundData = data.find(d => parseInt(d.learning_goal_id) === currentLg && parseInt(d.learning_byte_id) === currentLb);
-            console.log(foundData);
-            if (foundData) {
-                const lbs = ['video', 'text', 'graphic', 'assessment'];
-                for (ele of lbs) {
-                    if (ele != lb) {
-                        console.log(ele);
-                        const newData = data.find(d => parseInt(d.learning_goal_id) == foundData.learning_goal_id && d.type == ele);
-                        if (newData) {
-                            const out = [{ name : "lg_id", value : newData.learning_goal_id}, {name : "lb_id", value : newData.learning_byte_id}];
-                            displayResults(out, ele);
-                        }
-                    }
-                }
+        console.log(foundData);
+        if (foundData) {
+          const lbs = ['video', 'text', 'graphic', 'assessment'];
+          for (ele of lbs) {
+            if (ele != lb) {
+              console.log(ele);
+              const newData = data.find(d => parseInt(d.learning_goal_id) == foundData.learning_goal_id && d.type == ele);
+              if (newData) {
+                const out = [{ name : "lg_id", value : newData.learning_goal_id}, {name : "lb_id", value : newData.learning_byte_id}];
+                displayResults(out, ele);
+                updateHistory(out, ele);
+              }
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }
-    
+  
+  function initializeHistory(state, lb){
+    if (state == []){
+      lbHistory[lb] = {
+        stack: [],
+        currentIndex: -1
+      }
+    } else {
+      lbHistory[lb] = {
+        stack: [],
+        currentIndex: 0
+      }
+      lbHistory[lb].stack.push(state);
+    }
+  }
 
+  function updateHistory(state, lb) {
+    const currentHistory = lbHistory[lb];
+    currentHistory.stack = currentHistory.stack.slice(0,currentHistory.currentIndex + 1)
+    currentHistory.stack.push(state)
+    currentHistory.currentIndex++
+  }
+
+  function navigateBack(lb) {
+    const currentHistory = lbHistory[lb];
+    if (currentHistory.currentIndex > 0) {
+      currentHistory.currentIndex--;
+      const state = currentHistory.stack[currentHistory.currentIndex];
+      displayResults(state, lb);
+    }
+  }
+  
+  function navigateForward(lb) {
+    const currentHistory = lbHistory[lb];
+    if (currentHistory.currentIndex < currentHistory.stack.length - 1) {
+      currentHistory.currentIndex++;
+      const state = currentHistory.stack[currentHistory.currentIndex];
+      displayResults(state, lb);
+    }
+  }
+  
+  function saveBookmark() {
+    const key = document.getElementById('addBookmark').value;
+    if (key.trim() === '') {
+      alert('Please enter a bookmark name');
+      return;
+    }
+
+    console.log("Bookmark name:", key);
+
+    const content = [];
+    const lbs = ['video', 'text', 'graphic', 'assessment'];
+    for (lb of lbs) {
+      const numberElement = document.getElementById(lb);
+      console.log(numberElement);
+      if (numberElement.innerText != "No results found") {
+        const numbersList = numberElement.querySelectorAll('li');
+        const numbers = Array.from(numbersList).map(item => item.innerText);
+        const currentLg = extractNumbersFromString(numbers[0])[0];
+        const currentLb = extractNumbersFromString(numbers[1])[0];
+        const state = [currentLg, currentLb];
+  
+        content.push([lb, state]);  
+      } else {
+        content.push([lb, numberElement.innerText])
+      }
+    }
+    localStorage.setItem(key, content);
+  }
+
+  function reloadBookmark() {
+    const key = document.getElementById('reloadBookmark').value;
+    if (key.trim() === '') {
+      alert('Please enter a bookmark name');
+      return;
+    }
+
+    const saveStates = localStorage.getItem(key).split(',');
+    console.log(saveStates);
+    if (saveStates) {
+      const lbs = ['video', 'text', 'graphic', 'assessment'];
+      for (lb of lbs) {
+        const index = saveStates.indexOf(lb);
+        if (saveStates[index+1] != 'No results found') {
+          const out = [{ name : "lg_id", value : saveStates[index+1]}, {name : "lb_id", value : saveStates[index+2]}];
+          displayResults(out, lb);
+          updateHistory(out, lb);  
+        } else {
+          displayResults([], lb);
+          updateHistory([], lb);  
+        }
+      }
+    }
+  }
 
   function displayResults(data, lb) {
     const resultsDiv = document.getElementById(lb);
