@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Primitive Interface</title>
+    <title>Local Primitive Interface</title>
     <script src="local_script.js"></script>
     <style>
         .container {
@@ -21,41 +21,58 @@
 </head>
 <body>
     <h1>Primitive Interface</h1>
+
+    <input type="text" id="addBookmark" placeholder="Enter Bookmark Name">  
+    <button onclick="saveBookmark()">Save Bookmark</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="reloadBookmark" placeholder="Enter Bookmark Name">  
+    <button onclick="reloadBookmark()">Reload Bookmark</button>
+
+    <p>
     <input type="text" id="keywordInput" placeholder="Enter keyword">
     <button onclick="search()">Search</button>
+    </p>
 
     <div class="container">
         <div class="panel">
             <h2>Video</h2>
             <!-- Content for panel 1 -->
             <div id="video"></div>
-            <button onclick="prevlb('video')"> < </button>
+            <button onclick="navigateBack('video')"> &#x21A9; </button>
+            <button onclick="prevlb('video')"> &#x2190; </button>
             <button onclick="synclb('video')">Sync</button>
-            <button onclick="nextlb('video')"> > </button>
+            <button onclick="nextlb('video')"> &#x2192; </button>
+            <button onclick="navigateForward('video')"> &#x21AA; </button>
         </div>
         <div class="panel">
             <h2>Text</h2>
             <!-- Content for panel 2 -->
             <div id="text"></div>
-            <button onclick="prevlb('text')"> < </button>
+            <button onclick="navigateBack('text')"> &#x21A9; </button>
+            <button onclick="prevlb('text')"> &#x2190; </button>
             <button onclick="synclb('text')">Sync</button>
-            <button onclick="nextlb('text')"> > </button>
+            <button onclick="nextlb('text')"> &#x2192; </button>
+            <button onclick="navigateForward('text')"> &#x21AA; </button>
         </div>
         <div class="panel">
             <h2>Graphic</h2>
             <!-- Content for panel 3 -->
             <div id="graphic"></div>
-            <button onclick="prevlb('graphic')"> < </button>
+            <button onclick="navigateBack('graphic')"> &#x21A9; </button>
+            <button onclick="prevlb('graphic')"> &#x2190; </button>
             <button onclick="synclb('graphic')">Sync</button>
-            <button onclick="nextlb('graphic')"> > </button>
+            <button onclick="nextlb('graphic')"> &#x2192; </button>
+            <button onclick="navigateForward('graphic')"> &#x21AA; </button>
         </div>
         <div class="panel">
             <h2>Assessment</h2>
             <!-- Content for panel 4 -->
             <div id="assessment"></div>
-            <button onclick="prevlb('assessment')"> < </button>
+            <button onclick="navigateBack('assessment')"> &#x21A9; </button>
+            <button onclick="prevlb('assessment')"> &#x2190; </button>
             <button onclick="synclb('assessment')">Sync</button>
-            <button onclick="nextlb('assessment')"> > </button>
+            <button onclick="nextlb('assessment')"> &#x2192; </button>
+            <button onclick="navigateForward('assessment')"> &#x21AA; </button>
         </div>
     </div>
 
