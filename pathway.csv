@@ -1,0 +1,253 @@
+,learning_pathway_order,learning_goal_id,learning_goal
+0,1,4,appreciate that a chemist often shifts between the macroscopic and particulate views of matter
+1,3,84,understand avogadro's number and convert between number of moles and the number of particles
+2,9,264,"using threshold (work function) energy, understand how to calculate the electron energy of ejected electrons"
+3,11,7,understand that an atom is the smallest particle of an element
+4,25,1223,can use the debroglie relationship to relate wavelength to particle momentum
+5,30,1222,understand the relationship between particle momentum and wavelength
+6,37,1296,Understand the basic structure of atoms; nucleus of proton and neutrons surrounded by an electron cloud.
+7,66,284,explain the use of the quantum mechanical model of the atom to represent the energy and probable location of electrons
+8,68,64,understand that electrons surround the nucleus in an atom
+9,71,1299,Can write and understand atomic symbols from the periodic table with atomic and mass number.
+10,79,1301,"Understand the length and size scale of atoms and molecules.
+"
+11,80,1302,"Understand the dimensions of atoms, molecules"
+12,87,60,can describe the physical properties of neutrons
+13,88,52,"understand the composition of  atomic nuclei and their roll in atomic structure, function and properties of elements."
+14,91,76,"understand the mass of atoms is almost entirely in the nucleus, the volume from the electron cloud."
+15,92,1297,"understand atomic number, the number of protons in the nucleus, determines the identity of an element."
+16,94,70,"can use atomic number, z, operationally and conceptually"
+17,95,1298,understand the mass number is the sum of protons and neutrons in the nucleus of an element and differentiate atomic mass.
+18,100,77,understand atomic masses are relative to 12c atoms with a mass of exactly 12 amu
+19,103,74,understands the role isotopes play in determining the relative atomic mass of an element
+20,108,72,"can define isotope, isotopic abundance and mass number"
+21,111,73,"can determine the numbers of neutrons, protons, and electrons in an isotope from atomic number and mass number, and write the chemical symbol for an isotope"
+22,114,75,understand that atomic mass is a weighted average of the masses of the atoms (isotopes) in naturally occurring elements
+23,117,80,can interpret mass spectral data of elements and simple compounds
+24,126,79,can describe the function and operation of a mass spectrometer
+25,132,92,describe the properties of molecular compounds
+26,134,385,"describe the energy changes associated with the formation of an ionic bond (ionization energy, electron affinity, lattice energy)"
+27,139,113,understand that the molecular formula describes the number of each kind of atom in one molecule of the compound
+28,142,149,can recognize common acids and bases and predict when neutralization reactions will occur
+29,143,83,"can describe amounts of matter in moles, avogadro's number, and molar masses"
+30,152,121,use stoichiometric principles in chemical analysis of compounds
+31,153,82,understand the mole is a base unit that measures the quantity of matter compared to the number of atoms of carbon in a sample of carbon-12
+32,160,110,understand that the empirical formula describes the simplest ratio of atoms that make up the substance
+33,165,112,use mass data to determine an empirical formula
+34,168,116,interpret the information conveyed by a balanced chemical equation
+35,171,115,understand that balanced chemical equations can be used to calculate relative amounts of reactants and products
+36,172,1303,Understand how compounds participate stoichiometrically in chemical reactions
+37,173,654,understand that catalysts increase the rate of chemical reactions by reducing the activation energy
+38,176,122,use stoichiometric principles in the chemical analysis of a mixture
+39,177,1304,understand conservation of mass as thel basis for stoichiometry 
+40,180,120,use mole ratios to determine relative quantities of matter involved in chemical reactions
+41,182,128,calculate the theoretical yield of product(s) and the quantity of other reactant(s) consumed or unreacted in limiting reactant problems
+42,184,126,identify the limiting reactant in a reaction
+43,186,1200,recognize visible wavelengths range from approximately 400-700 nm
+44,189,253,recognize that the visible region wavelengths range from about 400-700 nanometers
+45,190,255,"use the relationships between frequency, wavelength, and speed of light"
+46,201,265,make the connection between ionization energy and threshold energy of a metal
+47,203,256,"understand the order, relative energy and common names frequency bands in the electromagnetic spectrum."
+48,210,1201,understand light is an electromagnetic wave.
+49,211,1198,understand that visible light is part of the electromagnetic spectrum
+50,212,277,has operational and conceptual understanding of wave-particle duality
+51,227,295,"understand the quantum numbers (principal, angular momentum, magnetic, spin) operationally and conceptually"
+52,243,1235,"understand the relationships between quantum numbers, nodes and shapes and energy levels of wave functions"
+53,247,1306,"Understand particles have position, velocity, mass and momentum."
+54,249,1234,understand the general relationship between quantum numbers and wave function energy
+55,250,1226,understand the electronic structure of atoms in terms of the wave properties of electrons; probability distribution
+56,252,65,understand that electrons have wave-like properties which lead to quantized energy levels when bound to at atom
+57,253,338,understand orbitals are related to electronic wave functions
+58,258,342,describe the differences in orbital shapes by quantum number
+59,259,292,understand that wave functions are standing wave patterns
+60,282,293,know that wave functions are solutions to the schrödinger equation
+61,294,1232,understand the contributions from kinetic and potential energy to mathematical form of wave functions
+62,323,336,can use quantum numbers to describe orbitals
+63,329,335,describe orbitals as probabilities and electron density
+64,338,1310,Can identify types of nodes in orbital from shapes and quantum numbers.
+65,341,332,understand matter cannot overlap in space and every electron in an atom has a unique set of quantum numbers
+66,353,330,understand paramagnetic materials contain unpaired electrons
+67,359,348,"recognize outer electrons are shielded more strongly by electrons in lower, inner shells and poorly by those in the same shell"
+68,363,353,recognize electronic configurations are not unique
+69,364,372,understands ionization energy to be the energy required to remove an electron from a system (e.g. atom or molecule).
+70,378,373,can predict and identify trends in ionization energies from the periodic table.
+71,394,343,can use the periodic table operationally and conceptually
+72,397,1242,can define ionization energy as the energy required to remove an electron (e.g. from an atom)
+73,398,374,"can describe trends in ionization energies, based on electron configurations"
+74,406,365,use the periodic table to predict size and trends in atomic radius
+75,410,376,use the periodic table to predict the relative electron affinities of elements
+76,412,410,describe electronegativity trends in the periodic table
+77,421,100,describe the properties of ionic compounds
+78,422,383,understand that ionic bonding involves a transfer of electrons from one atom to another creating ions
+79,427,384,recognize that ionic bonding describes the electrostatic attraction between oppositely charged ions
+80,432,396,understand that the noble gas configuration is generally the most stable and that the tendency is for bonded atoms to achieve this configuration in bonding
+81,436,394,be able to construct lewis structures given the formula of a molecule or polyatomic ion
+82,437,395,understand when to use multiple (double or triple) bonds in lewis structures
+83,438,420,"understand that bond order (when dealing with resonance structures) describes the ""average"" bond type"
+84,439,419,determine bond order from lewis structures
+85,440,389,understand covalent bonds involve shared electrons
+86,446,1385,Learning Goal for Molecular Orbitals
+87,448,1392,Learning Goal for Bond Energy
+88,450,1381,Learning Goal for Lewis Structures
+89,456,427,relate bond energy to bond strength
+90,461,390,understand that electrons in covalent bonds may not be shared equally
+91,462,406,calculate formal charges based on the electronic structure of the molecule compared to the atom
+92,470,403,write the lewis structure of a molecule or ion with an expanded octet
+93,473,409,use the electronegativity operationally and conceptually
+94,476,747,"can use electronegativity, bond polarity, and bond energy to predict acid strength"
+95,477,414,estimate a molecule's dipole moment using electronegativities of the elements involved in the molecule
+96,480,179,determine oxidation numbers from the lewis structure of a molecule or ion by assigning electrons to the more electronegative atom and then comparing this number with the number of electrons in an isolated atom of that element
+97,482,426,understand that bond energy is the amount of energy needed to break a bond
+98,491,230,understand the origin of the enthalpy change for a chemical reaction in terms of bond enthalpies of reactants and products
+99,500,428,understand that energy is always needed to break bonds
+100,501,430,use lewis structures and vsepr to predict bond angles
+101,506,443,understand how the steric number helps predict the molecular geometry
+102,509,444,use the steric number of the number of lone pairs to name the molecular shape
+103,510,455,understand that atomic orbitals are added or subtracted to form molecular bonding and antibonding orbitals
+104,528,457,"describe how bond strength, bond length and bond order are related to bonding and antibonding orbitals"
+105,538,456,recognize the difference between sigma and pi molecular orbitals
+106,539,447,understand that covalent bonds can be described by overlap of atomic orbitals
+107,547,461,describe the molecular orbitals that result from atomic p-orbitals (sigma and pi)
+108,560,462,"understand how the energy level diagrams, the bond orders, bond energies, and bond lengths vary for diatomic molecules"
+109,565,458,understand that electrons in molecular orbitals may be delocalized over the entire molecule
+110,577,446,recognize that electrons are shared in the overlapped orbitals
+111,585,445,understand that the theory describes bonding in terms of unhybridized atomic orbitals overlapping
+112,586,450,understand that the combinations of available atomic orbitals produce the hybrid orbitals
+113,593,448,explain how hybridization is used to describe molecular shape
+114,599,451,use the steric number of an atom in a molecule to predict the hybrid orbitals that will form
+115,601,449,recognize that a set of hybridized orbitals are similar in shape and energy
+116,602,514,"define and/or explain the meaning of pressure, temperature, volume, and amount of substance (moles)"
+117,606,510,recognize that gases (unlike solids and liquids) can be easily compressed
+118,607,209,"understand and calculate values for different kinds of work (pressure-volume, electrical, mechanical, etc.)"
+119,629,512,recognize that gases expand into whatever volume contains them
+120,630,205,understand that heat is not a state function; it depends on the path taken between the initial and final states
+121,634,196,understand that energy can be transferred by heat or by work; ∆e=q+w
+122,643,207,distinguish between heat (energy transferred due to differences in t) and work (the method by which energy is transferred from one system to another)
+123,654,509,describe common gas properties
+124,655,535,understand that pressure of the gas particles depends on the product of the momentum transfer and the frequency of collisions
+125,661,534,describe pressure in terms of molecular collisions with container walls
+126,668,521,"predict the result of changes involving two variables (p, v, or t) when the third is held constant"
+127,687,519,understand that boyle's law describes the relationship between gas volume and gas pressure (for fixed amounts of gas at a fixed temperature)
+128,691,517,describe the construction and use of a barometer/manometer
+129,693,204,distinguish between heat (energy transferred due to differences in t) and temperature (indicates direction of heat flow)
+130,696,520,understand that charles's law describes the relationship between gas volume and absolute (kelvin) temperature (for fixed amounts of gases at fixed pressures)
+131,697,524,use the ideal gas equation operationally
+132,700,518,use gas laws conceptually and operationally
+133,704,540,have an operational and conceptual understanding of the relationship between kinetic energy of gas particles and temperature
+134,709,523,"recognize that the ideal gas equation is a combination of the basic gas laws (boyle's, charles's, and avogadro's laws)"
+135,712,692,use partial pressures of gases to express gas concentrations
+136,715,513,recognize that gases mix completely with one another
+137,717,528,recognize that each gas in a mixture acts independently of any other gas in that mixture
+138,724,542,describe the effect of molar mass on the root mean square speed of the gas particles
+139,732,543,describe the effect of temperature on the root mean square speed of the gas particles
+140,739,546,describe the changes in shape of the maxwell-boltzmann distribution with changes in temperature and/or changes in mass of the gas particles
+141,742,786,understand that entropy increases in proportion to the number of ways a system can be arranged with the same energy
+142,771,1250,"recognize boltzmann's constant, k, it's value and applications"
+143,775,27,understand that temperature is related to the average kinetic energy of the particles in a system.
+144,791,537,recognize that the average kinetic energy of a mole of gas particles is 3/2*rt
+145,793,538,have an operational and conceptual understanding of the relationship between kinetic energy of a gas and temperature
+146,797,1251,"describe how maxwell-boltzmann distribution with changes with mass, temperature"
+147,809,545,describe the basic features of the maxwell-boltzmann distribution of molecular speeds
+148,826,1248,calculate the root mean square speed
+149,832,550,recognize how the approximations made in the ideal gas model need to be modified in order to describe real gases
+150,834,1253,recognize and understand modifications in the ideal gas law necessary to describe real gas behavior
+151,836,549,compare the behavior of real gases with ideal gases
+152,839,562,recognize that vapor pressure is the equilibrium pressure of the gas above the liquid phase
+153,856,1252,understand the properties of real gasses consequent  deviations from ideal gas law
+154,859,1254,understand the nature of various intermolecular forces
+155,884,1263,predict the relative boiling points and correlate with intermolecular forces
+156,885,10,"recognize and use characteristics of the three common states of matter, solid, liquid, and gas on both the macroscopic and particulate level"
+157,894,554,explain how dipole-dipole forces depend on the dipole moment of the molecules of a substance
+158,898,553,explain how dipole-dipole forces arise
+159,902,555,explain how london forces arise
+160,905,1257,explain the dependence of electron distribution and volume upon london forces
+161,910,570,understand that surface tension arises from intermolecular forces acting between molecules at the surface of a liquid
+162,917,558,explain how hydrogen bonding occurs
+163,923,1259,identify molecules systems with potential for hydrogen bonding
+164,930,223,recognize that condensation is the conversion of a gas or vapor to a liquid
+165,932,1255,recognize the impact of intermolecular forces upon the phases of matter
+166,934,219,use the enthalpy of vaporization conceptually and operationally
+167,936,225,understand that sublimation describes the conversion of a solid directly to a gas or vapor
+168,961,206,recognize that work has the same units as energy
+169,967,210,distinguish the thermodynamic system (the part of the universe on which attention is to be focused) and the surroundings
+170,977,203,recognize that heat is a form of energy
+171,995,213,"differentiate among heat capacity, specific heat capacity, and molar heat capacity"
+172,1002,211,remember the sign conventions used for q and w (+ for heat flowing into the system or for work done on the system; - for heat flowing out of the system or for work done by the system)
+173,1008,214,use specific heat capacity and the sign conventions for transfer of energy
+174,1016,212,define heat capacity
+175,1032,208,understand that work is not a state function; it depends on the path taken between the initial and final states
+176,1048,229,recognize that enthalpy is a state function; it depends only on the initial and final states of the system
+177,1064,226,distinguish between the change in internal energy and the change in enthalpy for a system
+178,1077,227,understand that enthalpy is the heat exchanged at constant pressure
+179,1083,234,recognize that the enthalpies of formation for most compounds are negative
+180,1087,231,use standard enthalpies of formation and a balanced chemical equation to calculate the standard enthalpy change for the reaction
+181,1098,241,use hess’s law to calculate the enthalpy of reaction using enthalpies of known reactions
+182,1101,232,use standard enthalpies of formation conceptually and operationally
+183,1108,788,recognize that entropy is a state function
+184,1113,787,"describe why the entropy of a system increases when the system's temperature, volume or number of particles increases"
+185,1125,796,understand the distinction between spontaneity and reaction rate
+186,1130,789,understand that increases in entropy describes the conversion of useful energy into random molecular motion
+187,1138,802,understand that the entropy of the universe must increase for all spontaneous processes
+188,1140,795,understand what is meant by a spontaneous process
+189,1145,791,determine the sign of the entropy change for  gases undergoing isothermal expansion or contraction
+190,1147,790,calculate the entropy change of a reaction from entropies of formation of the reactants and products
+191,1182,785,understand that the driving force for all spontaneous processes is an increase in the entropy of the universe (entropy is not conserved)
+192,1184,1399,Learning Goal for Thermo Free Energy
+193,1189,794,"calculate the change in entropy for physical processes (changes in temperature, changes in physical state)"
+194,1199,808,calculate ∆g using the gibb's free energy relationship and values of ∆h and ∆s
+195,1207,809,understand the relationship between free energy and temperature
+196,1216,805,"understand the significance of the sign of the free energy change (+,-,or 0)"
+197,1217,803,understand the third law of thermodynamics conceptually and operationally
+198,1235,806,"use the sign of the enthalpy change and entropy change to predict whether a process will be spontaneous at no t, low t, high t or all t"
+199,1269,1261,explain how vapor pressure varies with temperature
+200,1271,1268,can identify the features of phase diagrams
+201,1273,592,"understand that a phase diagram is a graphical representation of the phases of a substance as a function of temperature, pressure, and volume"
+202,1296,575,describe what is meant by the critical pressure for a substance
+203,1302,679,"understand the qualitative effects of changes in concentration, changes in temperature, and changes in pressure on equilibrium systems"
+204,1310,705,understand that a system at equilibrium will shift in the direction to counteract the change in concentration
+205,1322,697,"using the equilibrium expression and its related equilibrium constant value, calculate a new equilibrium constant when the coefficients of the chemical equation are multiplied by a factor"
+206,1323,810,understand the relationship between free energy and the equilibrium constant
+207,1331,681,understand that equilibrium systems approximate reversible processes
+208,1333,674,recognize that amounts of reactant and product cease to change when chemical equilibrium is reached
+209,1334,680,apply the concept of chemical equilibrium to practical chemistry examples
+210,1347,675,understand that chemical equilibrium is a dynamic state
+211,1349,1394,Learning Goal for Equilibrium
+212,1351,694,use partial pressures of gases to calculate equilibrium constants when gases are involved the chemical equilibrium
+213,1352,685,use the reaction quotient and the equilibrium constant to predict the concentration changes that will occur as the system approaches equilibrium
+214,1366,689,recognize that equilibrium constant values are temperature dependent
+215,1368,699,apply the steps needed to solve equilibrium problems
+216,1371,672,understand the conditions needed to reach an equilibrium state
+217,1374,684,recognize that the equilibrium constant is one possible value of the reaction quotient
+218,1381,720,describe the relationship between conjugate acid and base strengths and the magnitude of ka and kb
+219,1382,150,can describe the chemical properties of acids and bases
+220,1387,717,recognize bronsted-lowry acids as proton donors
+221,1389,714,define and classify bronsted-lowry acids and bases operationally and conceptually
+222,1390,722,recognize that the acidic or basic character of a water solution depends on the dominance of h3o+ or oh- in solution
+223,1392,727,"calculate the ph (or poh) given [h3o+], or [oh-] given ph (or poh)"
+224,1398,726,"classify an aqueous solution as acidic, neutral, or basic based on its [h3o+] or [oh-] and its ph or poh"
+225,1399,151,can predict the products of neutralization reactions
+226,1405,754,calculate the ph and/or the percent ionization for a solution of a weak acid (or weak base) and its salt
+227,1406,746,can predict the relative acid strength of various compounds
+228,1407,1403,Learning Goal for Acid Base: Strong
+229,1410,741,understand extent of dissociation of acids and bases in water determines acid/base strength
+230,1418,725,understand the product of [h3o+] and [oh-] is always a constant in water even in the presence of other equilibria
+231,1420,1300,Can write and identify acids and bases in acid/base chemical reactions
+232,1428,773,recognize that acid-base indicators are solutions of weak acids or weak bases which have different colors in the acid form and the base form of the molecule
+233,1430,757,calculate the ph of buffered solutions using the henderson-hasselbach equation
+234,1439,758,calculate the change in ph that occurs when a given amount of acid or base is added to a buffered solution
+235,1440,759,understand that buffer capacity depends on the concentration of the acid and the relationship between the pka of the acid and the ph of the solution
+236,1446,774,understand why the color change of the acid-base indicator occurs when the ph of the solution is close to the pka value of the indicator
+237,1447,721,calculate pka or pkb  from ka or kb values (and vice versa)
+238,1455,740,use the ka values for successive ionization steps to calculate the fraction of any species produced at a given value of ph
+239,1456,1405,Learning Goal for Acid Base: Weak
+240,1457,170,recognize that an oxidizing agent is the substance that causes oxidation
+241,1458,176,recognize oxidation-reduction reactions in terms of oxidation numbers and electron transfer
+242,1465,174,recognize that oxidation and reduction must occur together
+243,1469,171,recognize that the oxidizing agent is reduced in the redox reaction
+244,1470,175,describe oxidation-reduction in terms of electron transfer
+245,1486,611,understand that energy is needed to separate (expand) the solute particles
+246,1487,167,understand oxidation in terms of the loss of h-atoms or the addition of o-atoms by a compound
+247,1488,833,describe the process of electrolysis as a nonspontaneous process that uses electrical energy to produce chemical change
+248,1490,829,"describe the relationships linking maximum cell potential, standard free energy change and the equilibrium constant for a given redox process"
+249,1493,132,relate differences in solution conductivity to the presence or absence of ions in the solution
+250,1501,812,describe the operation of a voltaic (or galvanic) cell as a spontaneous process that converts chemical energy into electrical energy
