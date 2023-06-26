@@ -1,13 +1,15 @@
-const lbHistory = {};
+  const lbHistory = {};
 
-function search() {
+  function search() {
+  // Generate the table storing the relevant information and populate the initial state variable from user input
+
     const keyword = document.getElementById('keywordInput').value;
     if (keyword.trim() === '') {
       alert('Please enter a keyword');
       return;
     }
   
-    fetch('data.csv') // Replace with the path to your CSV file
+    fetch('data.csv')
       .then(response => response.text())
       .then(csvData => {
         const data = parseCsvData(csvData); // Parse the CSV data
@@ -30,33 +32,98 @@ function search() {
       });
       console.log(lbHistory);
   }
-  
-  function extractNumbersFromString(str) {
-    const numbers = str.match(/\d+/g);
-    return numbers ? numbers.map(Number) : [];
-  }
 
   function nextlb(lb) {
+  // advance forward in the naviagation list
+
+  const numberElement = document.getElementById(lb);
+  const numbersList = numberElement.querySelectorAll('li');
+  const numbers = Array.from(numbersList).map(item => item.innerText);
+  const currentLg = extractNumbersFromString(numbers[0])[0];
+  const currentLb = extractNumbersFromString(numbers[1])[0];
+    
+  console.log(currentLg, currentLb)
+  
+  fetch('data.csv') // Replace with the path to your CSV file
+    .then(response => response.text())
+    .then(csvData => {
+      const data = parseCsvData(csvData); // Parse the CSV data
+  
+      const foundData = data.find(d => parseInt(d.learning_goal_id) === currentLg && parseInt(d.learning_byte_id) === currentLb);
+      console.log(foundData);
+      if (foundData) {
+        const order = foundData.learning_pathway_order;
+        console.log('The current order is', order);
+
+        const newData = data.find(d => d.type === lb && parseInt(d.learning_pathway_order) > order);
+        if (newData) {
+          const out = [{ name: "lg_id", value: newData.learning_goal_id }, { name: "lb_id", value: newData.learning_byte_id }];
+          displayResults(out, lb);
+          updateHistory(out, lb);
+        }
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }  
+
+  function prevlb(lb) {
+  const numberElement = document.getElementById(lb);
+  const numbersList = numberElement.querySelectorAll('li');
+  const numbers = Array.from(numbersList).map(item => item.innerText);
+  const currentLg = extractNumbersFromString(numbers[0])[0];
+  const currentLb = extractNumbersFromString(numbers[1])[0];
+
+  // console.log('Next button clicked on video. Current learning byte:', numbers[1]);
+  fetch('data.csv') // Replace with the path to your CSV file
+    .then(response => response.text())
+    .then(csvData => {
+      const data = parseCsvData(csvData); // Parse the CSV data
+          
+      const foundData = data.find(d => parseInt(d.learning_goal_id) === currentLg && parseInt(d.learning_byte_id) === currentLb);
+      if (foundData) {
+        const order = foundData.learning_pathway_order;
+        console.log('The current order is ', order);
+        const filteredData = data.filter(d => parseInt(d.learning_pathway_order) < order && d.type == lb);
+        if (filteredData.length > 0) {
+          const newData = filteredData[filteredData.length - 1];
+          const out = [{ name : "lg_id", value : newData.learning_goal_id}, {name : "lb_id", value : newData.learning_byte_id}];
+          displayResults(out, lb);
+          updateHistory(out, lb);
+        } else {
+          console.log('First element.');
+        }
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
+  function nextlg(lb) {
+    // advance forward in the learning pathway
+  
     const numberElement = document.getElementById(lb);
     const numbersList = numberElement.querySelectorAll('li');
     const numbers = Array.from(numbersList).map(item => item.innerText);
     const currentLg = extractNumbersFromString(numbers[0])[0];
     const currentLb = extractNumbersFromString(numbers[1])[0];
-    
+      
     console.log(currentLg, currentLb)
-  
+    
     fetch('data.csv') // Replace with the path to your CSV file
       .then(response => response.text())
       .then(csvData => {
         const data = parseCsvData(csvData); // Parse the CSV data
-  
+    
         const foundData = data.find(d => parseInt(d.learning_goal_id) === currentLg && parseInt(d.learning_byte_id) === currentLb);
         console.log(foundData);
         if (foundData) {
           const order = foundData.learning_pathway_order;
-          console.log('The current order is', order);
-
-          const newData = data.find(d => d.type === lb && parseInt(d.learning_pathway_order) > order);
+          // console.log('The current order is', order);
+  
+          const newData = data.find(d => d.type === lb && parseInt(d.learning_pathway_order) > order && parseInt(d.learning_goal_id) != currentLg);
           if (newData) {
             const out = [{ name: "lg_id", value: newData.learning_goal_id }, { name: "lb_id", value: newData.learning_byte_id }];
             displayResults(out, lb);
@@ -67,90 +134,77 @@ function search() {
       .catch(error => {
         console.error('Error:', error);
       });
-  }
-  
-  function parseCsvData(csvData) {
-    const lines = csvData.split('\n');
-    const headers = lines[0].split(',');
-    const data = [];
-  
-    for (let i = 1; i < lines.length; i++) {
-      const values = lines[i].split(',');
-      const obj = {};
-      for (let j = 0; j < headers.length; j++) {
-        obj[headers[j]] = values[j];
-      }
-      data.push(obj);
     }
-  
-    return data;
-  }    
 
- function prevlb(lb) {
-    const numberElement = document.getElementById(lb);
-    const numbersList = numberElement.querySelectorAll('li');
-    const numbers = Array.from(numbersList).map(item => item.innerText);
-    const currentLg = extractNumbersFromString(numbers[0])[0];
-    const currentLb = extractNumbersFromString(numbers[1])[0];
-
-    // console.log('Next button clicked on video. Current learning byte:', numbers[1]);
-    fetch('data.csv') // Replace with the path to your CSV file
+  function prevlg(lb) {
+      const numberElement = document.getElementById(lb);
+      const numbersList = numberElement.querySelectorAll('li');
+      const numbers = Array.from(numbersList).map(item => item.innerText);
+      const currentLg = extractNumbersFromString(numbers[0])[0];
+      const currentLb = extractNumbersFromString(numbers[1])[0];
+    
+      // console.log('Next button clicked on video. Current learning byte:', numbers[1]);
+      fetch('data.csv') // Replace with the path to your CSV file
         .then(response => response.text())
         .then(csvData => {
           const data = parseCsvData(csvData); // Parse the CSV data
-            
+              
           const foundData = data.find(d => parseInt(d.learning_goal_id) === currentLg && parseInt(d.learning_byte_id) === currentLb);
           if (foundData) {
             const order = foundData.learning_pathway_order;
-            console.log('The current order is ', order);
-            const filteredData = data.filter(d => parseInt(d.learning_pathway_order) < order && d.type == lb);
+            // console.log('The current order is ', order);
+            const filteredData = data.filter(d => parseInt(d.learning_pathway_order) < order && d.type == lb && d.learning_goal_id != currentLg);
             if (filteredData.length > 0) {
               const newData = filteredData[filteredData.length - 1];
               const out = [{ name : "lg_id", value : newData.learning_goal_id}, {name : "lb_id", value : newData.learning_byte_id}];
               displayResults(out, lb);
               updateHistory(out, lb);
             } else {
-              console.log('First element.');
+              console.log('First learning goal.');
             }
           }
         })
         .catch(error => {
-            console.error('Error:', error);
+          console.error('Error:', error);
         });
-  }
+    }
 
   function synclb(lb) {
-    const numberElement = document.getElementById(lb);
-    const numbersList = numberElement.querySelectorAll('li');
-    const numbers = Array.from(numbersList).map(item => item.innerText);
-    const currentLg = extractNumbersFromString(numbers[0])[0];
-    const currentLb = extractNumbersFromString(numbers[1])[0];
+  const numberElement = document.getElementById(lb);
+  const numbersList = numberElement.querySelectorAll('li');
+  const numbers = Array.from(numbersList).map(item => item.innerText);
+  const currentLg = extractNumbersFromString(numbers[0])[0];
+  const currentLb = extractNumbersFromString(numbers[1])[0];
 
-    fetch('data.csv') // Replace with the path to your CSV file
-      .then(response => response.text())
-      .then(csvData => {
-        const data = parseCsvData(csvData); // Parse the CSV data
+  fetch('data.csv') // Replace with the path to your CSV file
+    .then(response => response.text())
+    .then(csvData => {
+      const data = parseCsvData(csvData); // Parse the CSV data
   
-        const foundData = data.find(d => parseInt(d.learning_goal_id) === currentLg && parseInt(d.learning_byte_id) === currentLb);
-        console.log(foundData);
-        if (foundData) {
-          const lbs = ['video', 'text', 'graphic', 'assessment'];
-          for (ele of lbs) {
-            if (ele != lb) {
-              console.log(ele);
-              const newData = data.find(d => parseInt(d.learning_goal_id) == foundData.learning_goal_id && d.type == ele);
-              if (newData) {
-                const out = [{ name : "lg_id", value : newData.learning_goal_id}, {name : "lb_id", value : newData.learning_byte_id}];
-                displayResults(out, ele);
-                updateHistory(out, ele);
-              }
+      const foundData = data.find(d => parseInt(d.learning_goal_id) === currentLg && parseInt(d.learning_byte_id) === currentLb);
+      console.log(foundData);
+      if (foundData) {
+        const lbs = ['video', 'text', 'graphic', 'assessment'];
+        for (ele of lbs) {
+          if (ele != lb) {
+            console.log(ele);
+            const newData = data.find(d => parseInt(d.learning_goal_id) == foundData.learning_goal_id && d.type == ele);
+            if (newData) {
+              const out = [{ name : "lg_id", value : newData.learning_goal_id}, {name : "lb_id", value : newData.learning_byte_id}];
+              displayResults(out, ele);
+              updateHistory(out, ele);
+            } else {
+              const out = [];
+              displayResults(out, ele);
+              updateHistory(out, ele);
             }
           }
         }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
   
   function initializeHistory(state, lb){
@@ -247,25 +301,68 @@ function search() {
     }
   }
 
-  function displayResults(data, lb) {
+  function displayResults(state, lb) {
+    // display the text
     const resultsDiv = document.getElementById(lb);
     resultsDiv.innerHTML = '';
   
-    if (data.length === 0) {
-      resultsDiv.innerText = 'No results found';
+    if (state.length === 0) {
+      resultsDiv.innerText = 'No learning bytes found';
     }
   
-    console.log(data);
+    console.log(state);
   
     const ul = document.createElement('ul');
     const numbers = [];
   
-    data.forEach(item => {
+    state.forEach(item => {
         const li = document.createElement('li');
         li.innerText = `${item.name}: ${item.value}`; // Display name and value
         ul.appendChild(li);
+
+        if (item.name === 'lg_id'){
+          fetch('pathway.csv')
+          .then(response => response.text())
+          .then(data => {
+            const pathway = parseCsvData(data);
+    
+            // Use the csvData variable for further processing
+            const goal = pathway.find(d => d.learning_goal_id == item.value);
+            if (goal) {
+              // console.log(goal.learning_goal);
+              const text = document.createElement('text');
+              text.innerText = goal.learning_goal;
+              ul.appendChild(text);
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });   
+        }
         numbers.push(parseInt(item.value));
       });
     
     resultsDiv.appendChild(ul);    
+  }
+
+  function parseCsvData(csvData) {
+    const lines = csvData.split('\n');
+    const headers = lines[0].split(',');
+    const data = [];
+    
+    for (let i = 1; i < lines.length; i++) {
+      const values = lines[i].split(',');
+      const obj = {};
+      for (let j = 0; j < headers.length; j++) {
+        obj[headers[j]] = values[j];
+      }
+      data.push(obj);
+    }
+    
+    return data;
+  }
+
+  function extractNumbersFromString(str) {
+    const numbers = str.match(/\d+/g);
+    return numbers ? numbers.map(Number) : [];
   }
