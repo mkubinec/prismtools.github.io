@@ -155,7 +155,10 @@
             // console.log('The current order is ', order);
             const filteredData = data.filter(d => parseInt(d.learning_pathway_order) < order && d.type == lb && d.learning_goal_id != currentLg);
             if (filteredData.length > 0) {
-              const newData = filteredData[filteredData.length - 1];
+              const newLg = filteredData[filteredData.length - 1].learning_goal_id;
+              console.log(filteredData);
+              const newData = filteredData.find(d => parseInt(d.learning_goal_id) == newLg);
+              console.log(newData);
               const out = [{ name : "lg_id", value : newData.learning_goal_id}, {name : "lb_id", value : newData.learning_byte_id}];
               displayResults(out, lb);
               updateHistory(out, lb);
