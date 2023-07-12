@@ -330,19 +330,37 @@
       resultsDiv.innerText = 'No learning bytes found';
       return;
     }
-  
 
     const lb_id = state[1].value;
     const lg_id = state[0].value;
   
     const ul = document.createElement('ul');
-    const numbers = [];
-
   
     state.forEach(item => {
         const li = document.createElement('li');
         li.innerText = `${item.name}: ${item.value}`; // Display name and value
         ul.appendChild(li);
+
+        if (item.name === 'lg_id'){
+          fetch('pathway.csv')
+          .then(response => response.text())
+          .then(data => {
+            const pathway = parseCsvData(data);
+    
+            // Use the csvData variable for further processing
+            // console.log(pathway);
+            const goal = pathway.find(d => d.learning_goal_id == item.value);
+            if (goal) {
+              // console.log(goal.learning_goal);
+              const text = document.createElement('text');
+              text.innerText = goal.learning_goal + '\n';
+              ul.appendChild(text);
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });   
+        }
 
         if (item.name === 'lb_id'){
           fetch('tags.csv')
@@ -373,28 +391,6 @@
             console.error('Error:', error);
           });   
         }
-
-        if (item.name === 'lg_id'){
-          fetch('pathway.csv')
-          .then(response => response.text())
-          .then(data => {
-            const pathway = parseCsvData(data);
-    
-            // Use the csvData variable for further processing
-            // console.log(pathway);
-            const goal = pathway.find(d => d.learning_goal_id == item.value);
-            if (goal) {
-              // console.log(goal.learning_goal);
-              const text = document.createElement('text');
-              text.innerText = goal.learning_goal + '\n';
-              ul.appendChild(text);
-            }
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });   
-        }
-        numbers.push(parseInt(item.value));
       });
     
     resultsDiv.appendChild(ul);    
