@@ -351,7 +351,6 @@
             // console.log(pathway);
             const goal = pathway.find(d => d.learning_goal_id == item.value);
             if (goal) {
-              // console.log(goal.learning_goal);
               const text = document.createElement('text');
               text.innerText = goal.learning_goal + '\n';
               ul.appendChild(text);
@@ -368,7 +367,7 @@
           .then(data => {
             const tags = parseCsvData(data);
 
-            // Use the csvData variable for further processing
+            // Use the tags variable for further processing
             const tag_names = tags.filter(d => parseInt(d.learning_byte_id) == lb_id && parseInt(d.learning_goal_id) == lg_id);
             console.log(tag_names.length);
             var counter = 0;
